@@ -32,12 +32,12 @@ jobs:
       - name: Install backend dependencies
         run: |
           cd backend
-          npm install --no-audit --no-fund
+          npm install --no-audit --no-fund --legacy-peer-deps
 
       - name: Run backend tests
         run: |
           cd backend
-          npm test
+          npx jest --runInBand --forceExit
         env:
           MONGO_URI: mongodb://localhost:27017/shambani-test
           JWT_SECRET: test-secret-key
@@ -57,14 +57,15 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd frontend
-          npm install --no-audit --no-fund
+          npm install --no-audit --no-fund --legacy-peer-deps
 
       - name: Run frontend tests
         run: |
           cd frontend
-          CI=true npm test -- --watchAll=false
+          CI=true npm test -- --watchAll=false --forceExit
         env:
           DISABLE_NEW_JSX_TRANSFORM: true
+          CI: true
 
   e2e:
     runs-on: ubuntu-latest
@@ -91,9 +92,9 @@ jobs:
       - name: Install backend & frontend deps
         run: |
           cd backend
-          npm install --no-audit --no-fund
+          npm install --no-audit --no-fund --legacy-peer-deps
           cd ../frontend
-          npm install --no-audit --no-fund
+          npm install --no-audit --no-fund --legacy-peer-deps
 
       - name: Build frontend
         run: |
