@@ -1,6 +1,6 @@
 // frontend/src/index.js - FINALIZED with Authentication Gate
 
-import React, { useContext } from 'react'; // Added useContext
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Added Navigate
 

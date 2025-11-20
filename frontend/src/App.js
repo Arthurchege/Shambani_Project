@@ -62,9 +62,7 @@ function App() {
     }
   };
 
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
+  // Removed unused handleNavigation function
 
   return (
     <div className="shambani-container">
