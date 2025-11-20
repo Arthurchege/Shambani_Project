@@ -82,7 +82,14 @@ io.use(async (socket, next) => {
 });
 
 // 2. Middleware
-app.use(cors()); 
+app.use(cors({
+    origin: [
+        'https://shambaniproject.netlify.app',
+        'http://localhost:3000'
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true
+}));
 app.use(express.json()); // Allows parsing JSON body data
 
 // 3. Database Connection
