@@ -544,27 +544,40 @@ GitHub Actions automatically runs on every push:
 
 ## 🚀 How to Deploy
 
-### Deploy Backend (Heroku/Railway)
+### ⚡ Quick Deployment Guide
+
+**[See RAILWAY_DEPLOYMENT.md for complete step-by-step instructions →](./RAILWAY_DEPLOYMENT.md)**
+
+This includes:
+
+- Setting up MongoDB Atlas (free cloud database)
+- Configuring Railway environment variables
+- Deploying frontend to Vercel
+- Troubleshooting connection issues
+
+### Deploy Backend (Railway)
 
 ```bash
-# Create .env for production
-MONGO_URI=your_mongodb_atlas_uri
-JWT_SECRET=your_secret_key
-PORT=5000
-NODE_ENV=production
+# Prerequisites:
+# 1. MongoDB Atlas connection string (see RAILWAY_DEPLOYMENT.md)
+# 2. Railway environment variables set:
+#    - MONGO_URI=your_mongodb_atlas_uri
+#    - JWT_SECRET=your_secret_key
+#    - NODE_ENV=production
+#    - PORT=8080
 
-# Push to Heroku/Railway
-git push heroku main
+# Already pushed to GitHub? Just wait for Railway redeploy!
+# Railway auto-deploys on every push to main branch
 ```
 
-### Deploy Frontend (Vercel/Netlify)
+### Deploy Frontend (Vercel)
 
 ```bash
-# Environment variables
-REACT_APP_API_URL=https://your-backend-url.com
+# Prerequisites:
+# 1. Vercel environment variable set:
+#    - REACT_APP_API_URL=https://your-railway-backend-url.com
 
-# Push to Vercel/Netlify
-git push
+# Connect your GitHub repo to Vercel and deploy!
 ```
 
 ---

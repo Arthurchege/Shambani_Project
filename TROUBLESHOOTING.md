@@ -550,17 +550,17 @@ Error: connect ECONNREFUSED
    - Format: `mongodb+srv://<username>:<password>@<cluster>.mongodb.net/database`
    - Never commit actual credentials to version control
 
-2. **Check username/password**
+3. **Check username/password**
 
    - No special characters without escaping
    - If password has `@`, use `%40`
 
-3. **Whitelist IP**
+4. **Whitelist IP**
 
    - In MongoDB Atlas: Security → Network Access
    - Add your IP or `0.0.0.0/0` (not recommended for production)
 
-4. **Check firewall**
+5. **Check firewall**
    - Port 27017 might be blocked
    - Configure AWS/GCP/Azure security groups
 

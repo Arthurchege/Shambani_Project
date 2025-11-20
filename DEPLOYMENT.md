@@ -1,6 +1,7 @@
 # Deployment Guide: Shambani App
 
 This guide covers deploying the Shambani application using:
+
 - **Backend**: Railway.app (Node.js + Express)
 - **Frontend**: Vercel (React)
 - **Database**: MongoDB Atlas (cloud MongoDB)
@@ -8,6 +9,7 @@ This guide covers deploying the Shambani application using:
 ## Prerequisites
 
 Before starting, ensure you have:
+
 - GitHub account (code pushed to a GitHub repository)
 - Vercel account (sign up via GitHub at https://vercel.com)
 - Railway account (sign up via GitHub at https://railway.app)
@@ -89,6 +91,7 @@ NODE_ENV=production
 ```
 
 **Example JWT_SECRET** (generate a random one):
+
 ```
 your_random_secret_key_at_least_32_characters_long_12345
 ```
@@ -165,9 +168,11 @@ In Vercel project settings:
 In your browser or REST client (Postman):
 
 1. Get all market prices:
+
    ```
    GET https://yourdomain.up.railway.app/api/prices
    ```
+
    Expected: JSON array of market prices
 
 2. Register a new user:
@@ -214,22 +219,26 @@ In your browser or REST client (Postman):
 ## Troubleshooting
 
 ### Frontend shows "API connection error"
+
 - Check that `REACT_APP_API_URL` is set correctly in Vercel environment variables
 - Verify the Railway domain is accessible: `curl https://yourdomain.up.railway.app/api/prices`
 - Check browser console (F12) for CORS errors
 
 ### Socket.IO connection shows 🔴 Offline
+
 - Ensure the backend is running on Railway (check Railway logs)
 - Verify `REACT_APP_API_URL` points to the correct Railway domain
 - Check browser console for WebSocket errors
 - Try a hard refresh (Ctrl+Shift+R)
 
 ### Database connection fails
+
 - Verify `MONGO_URI` is correct in Railway environment variables
 - Check MongoDB Atlas network access includes Railway's IP range (use "Allow from anywhere" for testing)
 - Ensure database user password doesn't contain special characters that need URL encoding
 
 ### Seed command fails on Railway
+
 1. Go to Railway → Backend service → **Shell** tab
 2. Run: `npm install` (to ensure all dependencies are installed)
 3. Then run: `npm run seed:all`
