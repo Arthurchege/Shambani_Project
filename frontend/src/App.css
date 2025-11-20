@@ -1,0 +1,136 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* frontend/src/App.css */
+
+/* Define a consistent theme */
+:root {
+    --primary-green: #38761D; /* Deep, rich green for branding/SDG */
+    --secondary-blue: #007BFF; /* Bright blue for key data (prices) */
+    --background-light: #F4F8FC; /* Very light blue-gray background */
+    --card-background: #FFFFFF;
+    --text-dark: #333333;
+    --text-muted: #666666;
+    --border-color: #E0E0E0;
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--background-light);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+/* Container and Header */
+.shambani-container {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.shambani-container header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--primary-green);
+    margin-bottom: 25px;
+}
+
+.shambani-container h1 {
+    color: var(--primary-green);
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+.shambani-container p {
+    color: var(--text-muted);
+}
+
+/* Search Bar Styling */
+.search-input {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Trend Card Styles (replacing inline styles in TrendCard.jsx) */
+.trend-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: var(--card-background);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.trend-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.trend-card h3 {
+    color: var(--text-dark);
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+
+.price-tag {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--secondary-blue); /* Highlight price */
+    margin: 0 0 5px 0;
+}
+
+.region-tag {
+    font-size: 0.95em;
+    color: var(--text-muted);
+}
+
+.update-time {
+    font-size: 0.75em;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 10px;
+}
