@@ -544,10 +544,11 @@ Error: connect ECONNREFUSED
 
 **Solution:**
 
-1. **Check connection string**
+2. **Check connection string**
 
    - Get from MongoDB Atlas dashboard
-   - Format: `mongodb+srv://username:password@cluster.mongodb.net/database`
+   - Format: `mongodb+srv://<username>:<password>@<cluster>.mongodb.net/database`
+   - Never commit actual credentials to version control
 
 2. **Check username/password**
 

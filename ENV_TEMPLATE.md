@@ -10,7 +10,7 @@
 MONGO_URI=mongodb://localhost:27017/shambani
 
 # Or MongoDB Atlas (for production)
-# MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/shambani?retryWrites=true&w=majority
+# MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/shambani?retryWrites=true&w=majority
 
 # JWT Secret Key - Change this in production!
 JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
@@ -38,11 +38,11 @@ REACT_APP_API_URL=http://localhost:5000
 ### Backend .env (Production)
 
 ```bash
-# MongoDB Atlas URI
-MONGO_URI=mongodb+srv://username:password@your-cluster.mongodb.net/shambani?retryWrites=true&w=majority
+# MongoDB Atlas URI (replace with your actual credentials)
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/shambani?retryWrites=true&w=majority
 
-# Strong JWT Secret (use a long random string)
-JWT_SECRET=generateRandomSecretWithAtLeast32Characters!@#$%^&*()
+# Strong JWT Secret (generate a secure random string)
+JWT_SECRET=<generate-secure-random-secret-32-chars-min>
 
 # Production Port
 PORT=5000
