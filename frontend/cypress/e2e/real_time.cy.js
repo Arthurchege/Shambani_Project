@@ -5,7 +5,7 @@ describe('Real-time price flow', () => {
     const password = 'TestPass123!';
 
     // Register user via API
-    cy.request('POST', 'http://localhost:5000/api/auth/register', { email, password, location: 'TestCounty' })
+    cy.request('POST', 'https://shambani.onrender.com/api/auth/register', { email, password, location: 'TestCounty' })
       .then((regRes) => {
         expect(regRes.status).to.eq(200);
         const token = regRes.body.token;
@@ -13,7 +13,7 @@ describe('Real-time price flow', () => {
         // create a product
         cy.request({
           method: 'POST',
-          url: 'http://localhost:5000/api/products',
+          url: 'https://shambani.onrender.com/api/products',
           headers: { 'x-auth-token': token },
           body: { name: 'TestMaize', category_type: 'Product', unit: 'kg' }
         }).then((prodRes) => {
@@ -23,7 +23,7 @@ describe('Real-time price flow', () => {
           // create a market
           cy.request({
             method: 'POST',
-            url: 'http://localhost:5000/api/markets',
+            url: 'https://shambani.onrender.com/api/markets',
             headers: { 'x-auth-token': token },
             body: { name: 'TestMarket', county: 'TestCounty', location: { type: 'Point', coordinates: [36.816, -1.283] } }
           }).then((marketRes) => {
@@ -42,7 +42,7 @@ describe('Real-time price flow', () => {
             // create a price via API which should trigger the server to emit priceUpdate
             cy.request({
               method: 'POST',
-              url: 'http://localhost:5000/api/prices',
+              url: 'https://shambani.onrender.com/api/prices',
               headers: { 'x-auth-token': token },
               body: { product_id: product._id, market_id: market._id, price: 999 }
             }).then((priceRes) => {

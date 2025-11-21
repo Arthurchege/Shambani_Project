@@ -84,7 +84,7 @@ const PricesPage = () => {
             socketOptions.auth = { token };
         }
 
-        const socket = io('http://localhost:5000', socketOptions);
+        const socket = io('https://shambani.onrender.com', socketOptions);
 
         socket.on('connect', () => {
             console.log('Socket connected:', socket.id);
