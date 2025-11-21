@@ -19,32 +19,39 @@ const RegisterPage = () => {
         setSuccess('');
 
         try {
-            // 1. Send registration data to the Express backend
-            const res = await fetch('/api/auth/register', { 
+            // Use environment variable or fallback to provided backend URL
+            const API_URL = 'https://shambani.onrender.com';
+            console.log('Registering with:', { email, password, location });
+            const res = await fetch(`${API_URL}/api/auth/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password, location })
             });
-
-            const data = await res.json();
+            let data = {};
+            try {
+                data = await res.json();
+            } catch (jsonErr) {
+                console.error('Failed to parse JSON:', jsonErr);
+            }
+            console.log('Backend response:', res.status, data);
 
             if (res.ok) {
                 setSuccess('Registration successful!');
-                
                 // OPTION 1 (Best Practice): Redirect to login page
-                // navigate('/login'); 
+                // navigate('/login');
 
                 // OPTION 2 (For quick testing): Log the user in immediately
                 login(data.token, { email: data.email, location: data.location });
-                
+
                 setTimeout(() => {
                     navigate('/'); // Send them to the market prices landing page
                 }, 1000);
-                
+
             } else {
-                setError(data.msg || 'Registration failed. Try a different email.');
+                setError(data.msg || `Registration failed. Status: ${res.status}`);
             }
         } catch (err) {
+            console.error('Network or fetch error:', err);
             setError('Network error. Ensure the backend is running and reachable.');
         }
     };
