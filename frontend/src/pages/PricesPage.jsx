@@ -22,7 +22,7 @@ const PricesPage = () => {
         setLoadingCategories(true);
         setError('');
         try {
-            const res = await fetch('http://localhost:5000/api/categories');
+            const res = await fetch('https://shambani.onrender.com/api/categories');
             if (res.ok) {
                 const data = await res.json();
                 const productCategories = data.filter(cat => cat.type === 'Product');
@@ -46,7 +46,7 @@ const PricesPage = () => {
         setLoadingMarkets(true);
         setError('');
         try {
-            const res = await fetch('http://localhost:5000/api/markets');
+            const res = await fetch('https://shambani.onrender.com/api/markets');
             if (res.ok) {
                 const data = await res.json();
                 setMarkets(data);

@@ -18,7 +18,7 @@ const MarketProductsPage = () => {
             setLoading(true);
             setError('');
             try {
-                const res = await fetch(`http://localhost:5000/api/prices/market/${marketId}`);
+                const res = await fetch(`https://shambani.onrender.com/api/prices/market/${marketId}`);
                 if (res.ok) {
                     const data = await res.json();
                     setMarket(data.market);

@@ -18,13 +18,13 @@ const ProductsPage = () => {
             setLoading(true);
             setError('');
             try {
-                const res = await fetch(`http://localhost:5000/api/products/byCategory/${categoryId}`);
+                const res = await fetch(`https://shambani.onrender.com/api/products/byCategory/${categoryId}`);
                 if (res.ok) {
                     const data = await res.json();
                     setProducts(data);
                     
                     // Fetch category details
-                    const categoryRes = await fetch(`http://localhost:5000/api/categories`);
+                    const categoryRes = await fetch(`https://shambani.onrender.com/api/categories`);
                     if (categoryRes.ok) {
                         const categories = await categoryRes.json();
                         const currentCategory = categories.find(cat => cat._id === categoryId);

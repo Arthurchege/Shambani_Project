@@ -20,7 +20,7 @@ function App() {
   
   // Data Fetching
   useEffect(() => {
-    fetch('/api/trends') 
+    fetch('https://shambani.onrender.com/api/trends')
       .then(res => {
         if (!res.ok) {
           throw new Error('Server returned an error.');

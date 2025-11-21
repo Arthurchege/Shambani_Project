@@ -18,7 +18,7 @@ const PriceComparisonPage = () => {
             setLoading(true);
             setError('');
             try {
-                const res = await fetch(`http://localhost:5000/api/prices/product/${productId}`);
+                const res = await fetch(`https://shambani.onrender.com/api/prices/product/${productId}`);
                 if (res.ok) {
                     const data = await res.json();
                     setProduct(data.product);
