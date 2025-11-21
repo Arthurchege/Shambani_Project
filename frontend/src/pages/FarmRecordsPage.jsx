@@ -29,8 +29,6 @@ const FarmRecordsPage = () => {
         setLoading(true);
         setError('');
         try {
-                headers: { 'x-auth-token': token } 
-            });
             const res = await fetch('https://shambani.onrender.com/api/records', {
                 headers: { 'x-auth-token': token }
             });
@@ -70,13 +68,6 @@ const FarmRecordsPage = () => {
         }
 
         try {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'x-auth-token': token 
-                },
-                body: JSON.stringify(formData)
-            });
             const res = await fetch('https://shambani.onrender.com/api/records', {
                 method: 'POST',
                 headers: {
@@ -107,7 +98,7 @@ const FarmRecordsPage = () => {
         }
 
         try {
-            const res = await fetch(`http://localhost:5000/api/records/${id}`, {
+            const res = await fetch(`https://shambani.onrender.com/api/records/${id}`, {
                 method: 'DELETE',
                 headers: { 'x-auth-token': token }
             });
