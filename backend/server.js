@@ -24,6 +24,7 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const productRoutes = require('./routes/productRoutes');
 const marketRoutes = require('./routes/marketRoutes');
 const priceRoutes = require('./routes/priceRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 const MarketTrend = require('./models/MarketTrend'); // Existing Market Data Model
 
@@ -112,6 +113,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/products', productRoutes); 
 app.use('/api/markets', marketRoutes); 
 app.use('/api/prices', priceRoutes); 
+app.use('/api/admin', adminRoutes);
 
 // 5. Existing Market Trends Route (Public - Shambani Home Page)
 app.get('/api/trends', async (req, res) => {

@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const MarketTrend = require('./models/MarketTrend');
 
 dotenv.config();
-const mongoURI = process.env.MONGO_URI; 
+const mongoURI = process.env.MONGO_URI;
 
 const generateHistoricalPrices = (startPrice, days, fluctuationFactor = 0.05) => {
     // ... (keep the existing helper function logic here)
@@ -114,4 +114,11 @@ const seedDB = async () => {
     }
 };
 
-seedDB();
+module.exports = {
+    trendData,
+    seedDB
+};
+
+if (require.main === module) {
+    seedDB();
+}

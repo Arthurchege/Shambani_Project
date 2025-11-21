@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const AgroDealer = require('./models/AgroDealer');
 
 dotenv.config();
-const mongoURI = process.env.MONGO_URI; 
+const mongoURI = process.env.MONGO_URI;
 
 const dealerData = [
     {
@@ -70,4 +70,11 @@ const seedDealersDB = async () => {
     }
 };
 
-seedDealersDB();
+module.exports = {
+    dealerData,
+    seedDealersDB
+};
+
+if (require.main === module) {
+    seedDealersDB();
+}
