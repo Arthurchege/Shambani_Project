@@ -25,7 +25,9 @@ const PricesPage = () => {
             const res = await fetch('https://shambani.onrender.com/api/categories');
             if (res.ok) {
                 const data = await res.json();
-                const productCategories = data.filter(cat => cat.type === 'Product');
+                // Support both array responses and wrapper objects { value: [...] }
+                const list = Array.isArray(data) ? data : (data.value || []);
+                const productCategories = list.filter(cat => cat.type === 'Product');
                 setCategories(productCategories);
             } else {
                 setError('Failed to load categories');
