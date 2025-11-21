@@ -25,12 +25,8 @@ const InputLocatorPage = () => {
         const fetchDealers = async () => {
             setLoading(true);
             setError('');
-            try {
+                try {
                 // Fetch is sent to the protected route with the JWT token
-                    headers: {
-                        'x-auth-token': token // Sending the JWT token
-                    }
-                });
                 const res = await fetch(`https://shambani.onrender.com/api/dealers/search?county=${searchCounty}`,
                 {
                     headers: {
