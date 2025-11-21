@@ -10,6 +10,14 @@
 
 ---
 
+## 🔗 Live Demo
+
+- **Frontend (Netlify):** https://shambaniproject.netlify.app
+- **Backend API (Render):** https://shambani.onrender.com
+
+> Note: If a link appears empty after a deploy, try a hard refresh (Ctrl+F5) or open in an Incognito window.
+
+
 ## 🎯 Features
 
 ### 🔐 Authentication & Security
